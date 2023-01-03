@@ -1,0 +1,39 @@
+{# 載入 template tags #}
+{% load bootstrap4 %}
+
+{# 載入 CSS 與 JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# 以 Bootstrap alerts 來顯示 django messages #}
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+{% endblock  %}
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Comic!!</a><br>
+    <a class="navbar-brand"> {{book_name}}</a>
+</nav>
+<body>
+    <div align="center">
+    {% load static %}
+        {% for i in comic_file_name %}
+        <p>
+            <img src="./static/{{ i.img }}"><br>
+        </p>
+        {% endfor %}
+    </div>
+
+    <p>
+        <a href="/index"> 回首頁</a>
+    </p>
+    <br>
+    <p>
+        <a href="/next_chap">下一章</a>
+    </p>
+
+</body>

@@ -13,22 +13,41 @@
 {% block content %}
 
 {% endblock  %}
+<body>
+    
+    <div class="container-fluid">
+        
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">Comic!!</a>
+        </nav>
 
-<nav class="navbar navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Comic!!</a>
-</nav>
-<div>
-{% autoescape off %}
-    {{ plot_div }}
-{% endautoescape %}
-</div>
-<hr>
-<div class>
-<div class = 'row'>
-    {% for category in categories %}
-        {% buttons %}
-        <button type="button" class="btn btn-outline-secondary">{{ category }}</button>
-        {% endbuttons %}
-    {% endfor %}
-</div>
-</div>
+        <div>
+        {% autoescape off %}
+            <hr>
+            <hr>
+            <hr>
+            <p>為您推薦熱門漫畫類別~</p>
+            <hr>
+            <div class = 'row justify-content-around'>
+                {{ plot_bar }}
+                {{ plot_pie }}
+                {{ plot_line }}
+                {{ plot_box }}
+            </div>
+        {% endautoescape %}
+        </div>
+
+        <hr>
+        <div class="container-fluid">
+            <form action="/read_comic" method="get">
+            <div class = 'row justify-content-around'>
+            {% for category in categories %}
+                {% buttons %}
+                    <button type="submit" name = 'catg' class="btn btn-outline-secondary" value = {{category}}>{{ category }}
+                {% endbuttons %}
+            {% endfor %}
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
