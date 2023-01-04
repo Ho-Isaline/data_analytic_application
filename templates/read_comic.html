@@ -32,8 +32,12 @@
         <a href="/index"> 回首頁</a>
     </p>
     <br>
-    <p>
-        <a href="/next_chap">下一章</a>
-    </p>
+    <form action="/next_chap" method="get">
+        <input type="hidden" name="book" value="{{book}}" />
+        <input type="hidden" name="chapter" value="{{chapter}}"/>
+        <button type="submit">下一章{{book}}{{chapter}}</button>
+    </form>    
+        
+    
 
 </body>

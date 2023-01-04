@@ -4,6 +4,8 @@ from . import views
 
 
 urlpatterns = [
-	path('', views.index, name='index'),
- 	path('read_comic', views.read_comic, name='read_comic')
+	path('index', views.index, name='index'),
+ 	path('read_comic', views.read_comic, name='read_comic'),
+	path('next_chap', views.read_next_chapter, name='next_chapter')
+
 ]

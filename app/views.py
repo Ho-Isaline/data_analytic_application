@@ -11,11 +11,19 @@ def index(request):
     return render(request, "index.html", context = all)
 
 def read_comic(request):
-    #先取得index過來的漫畫類別
     if request.method == 'GET':
         ca= request.GET.get('catg')
         print(ca)
-        book_name, comic_file_name = comic_scrap.scrap(ca)
-
+        book_name, comic_file_name, book, chapter = comic_scrap.scrap(ca,ca)
+                
+        print(book)
     #接著再去render 圖片檔案
-    return render(request, 'read_comic.html', context={'book_name':book_name, 'comic_file_name':comic_file_name})
+    return render(request, 'read_comic.html', context={'book_name':book_name, 'comic_file_name':comic_file_name, 'book':book, 'chapter':chapter})
+
+def read_next_chapter(request):
+    book = request.GET.get('book')
+    chapter = int(request.GET.get('chapter'))
+    print('read_next_chapter: ',book)
+    print('chapter: ', chapter, type(chapter))
+    book_name, comic_file_name, chapter = comic_scrap.next_chap(book,chapter)
+    return render(request, 'read_comic.html', context={'book_name':book_name, 'comic_file_name': comic_file_name, 'book':book, 'chapter':chapter})
