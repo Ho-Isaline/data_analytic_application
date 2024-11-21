@@ -1,8 +1,95 @@
-## automatic comic book crawler
-###using webside https://tw.manhuagui.com/list/view.html
-###目標
-利用django建立漫畫推薦及閱讀平台 隨機推薦所選類別漫畫 可限定漫畫本數
-###內容
-1. 爬曲排行榜前幾的漫畫類別(評價人數、留言人數、星級等) 並做視覺化呈現在首頁
-2. 首頁下方有多個類別，點選可做此類別的隨機漫畫推薦
-3. 首頁議會顯示當今最熱門的最新章節漫畫，可直接點選進行閱讀
+# 🕷️ Web Crawler Project
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white"/>
+  <img src="https://img.shields.io/badge/BeautifulSoup-000000?style=for-the-badge"/>
+</div>
+
+## 📖 About
+A collection of web crawlers built with Python, featuring implementations for various websites including PTT, Facebook, and Instagram. This project demonstrates different web scraping techniques and data extraction methods.
+
+## 🚀 Features
+- 📱 **Multi-Platform Support**
+  - PTT Crawler
+  - Facebook Crawler
+  - Instagram Crawler
+- 🔄 **Automated Data Extraction**
+- 📊 **Data Processing & Storage**
+- 🛡️ **Rate Limiting & Error Handling**
+
+## 🛠️ Tech Stack
+- **Python**: Core programming language
+- **Selenium**: Web automation and dynamic content scraping
+- **BeautifulSoup4**: HTML parsing and data extraction
+- **Requests**: HTTP requests handling
+- **Pandas**: Data manipulation and storage
+
+## ⚙️ Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/Ho-Isaline/web_crawl.git
+cd web_crawl
+```
+
+2. Install required packages
+```bash
+pip install -r requirements.txt
+```
+
+## 📝 Usage
+
+### PTT Crawler
+```python
+from crawlers.ptt_crawler import PTTCrawler
+
+crawler = PTTCrawler()
+crawler.start_crawling('board_name')
+```
+
+### Facebook Crawler
+```python
+from crawlers.fb_crawler import FacebookCrawler
+
+crawler = FacebookCrawler()
+crawler.login(username, password)
+crawler.crawl_page('page_url')
+```
+
+### Instagram Crawler
+```python
+from crawlers.ig_crawler import InstagramCrawler
+
+crawler = InstagramCrawler()
+crawler.crawl_profile('profile_name')
+```
+
+## 📋 Prerequisites
+- Python 3.7+
+- Chrome WebDriver (for Selenium)
+- Required Python packages listed in `requirements.txt`
+
+## ⚠️ Important Notes
+- Respect websites' robots.txt and terms of service
+- Implement appropriate delays between requests
+- Handle your credentials securely
+- Be mindful of rate limiting and IP blocking
+
+## 🔄 Future Updates
+- [ ] Add more platform support
+- [ ] Implement proxy rotation
+- [ ] Add data visualization features
+- [ ] Create comprehensive documentation
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+---
+<div align="center">
+  <i>Built with ❤️ by Isaline Ho</i>
+</div>
